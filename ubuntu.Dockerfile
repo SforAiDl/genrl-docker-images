@@ -8,11 +8,12 @@ RUN apt-get update && \
     # Python
     python-setuptools python-dev \
     sudo \
- # Do this cleanup every time to ensure minimal layer sizes
- # TODO: Turn this into a script
- && apt-get clean autoclean \
- && apt-get autoremove -y \
- && rm -rf /var/lib/{apt,dpkg,cache,log}
+    && apt-get install -y --reinstall ca-certificates \
+    # Do this cleanup every time to ensure minimal layer sizes
+    # TODO: Turn this into a script
+    && apt-get clean autoclean \
+    && apt-get autoremove -y \
+    && rm -rf /var/lib/{apt,dpkg,cache,log}
 
 
 RUN wget --no-check-certificate https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh \
