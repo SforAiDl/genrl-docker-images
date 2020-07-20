@@ -1,7 +1,8 @@
 FROM ubuntu:latest
 
 # Install baseline required tools
-RUN DEBIAN_FRONTEND="noninteractive" apt-get update && \
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
+    && apt-get update && \
     apt install -y --no-install-recommends \
     # C++
     build-essential g++ gcc git make wget \
