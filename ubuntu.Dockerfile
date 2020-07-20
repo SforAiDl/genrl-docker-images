@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 # Install baseline required tools
-RUN apt-get update && \
+RUN DEBIAN_FRONTEND="noninteractive" apt-get update && \
     apt install -y --no-install-recommends \
     # C++
     build-essential g++ gcc git make wget \
