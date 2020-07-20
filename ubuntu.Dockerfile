@@ -8,6 +8,7 @@ RUN apt-get update && \
     # Python
     python-setuptools python-dev \
     sudo \
+    libgtk2.0-dev \
     && apt-get install -y --reinstall ca-certificates \
     # Do this cleanup every time to ensure minimal layer sizes
     # TODO: Turn this into a script
